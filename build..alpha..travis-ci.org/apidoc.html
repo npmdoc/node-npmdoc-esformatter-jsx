@@ -1,0 +1,584 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >esformatter-jsx (v8.0.0)</a>
+</h1>
+<h4>esformatter plugin: format javascript files that contain React JSX Elements</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.esformatter-jsx">module esformatter-jsx</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx._restoreTemplateLiterals">
+            function <span class="apidocSignatureSpan">esformatter-jsx.</span>_restoreTemplateLiterals
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx.setOptions">
+            function <span class="apidocSignatureSpan">esformatter-jsx.</span>setOptions
+            <span class="apidocSignatureSpan">(opts, esformatter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx.stringAfter">
+            function <span class="apidocSignatureSpan">esformatter-jsx.</span>stringAfter
+            <span class="apidocSignatureSpan">(code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx.stringBefore">
+            function <span class="apidocSignatureSpan">esformatter-jsx.</span>stringBefore
+            <span class="apidocSignatureSpan">(code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">esformatter-jsx.</span>format_jsx</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.esformatter-jsx.format_jsx">module esformatter-jsx.format_jsx</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx.format_jsx.create">
+            function <span class="apidocSignatureSpan">esformatter-jsx.format_jsx.</span>create
+            <span class="apidocSignatureSpan">(htmlOptions, jsxOptions, options, esformatter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx.format_jsx.replaceJSXExpressionContainers">
+            function <span class="apidocSignatureSpan">esformatter-jsx.format_jsx.</span>replaceJSXExpressionContainers
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.esformatter-jsx.format_jsx.restoreJSXExpressionContainers">
+            function <span class="apidocSignatureSpan">esformatter-jsx.format_jsx.</span>restoreJSXExpressionContainers
+            <span class="apidocSignatureSpan">(source, containers, space, removeSpace)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.esformatter-jsx" id="apidoc.module.esformatter-jsx">module esformatter-jsx</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx._restoreTemplateLiterals" id="apidoc.element.esformatter-jsx._restoreTemplateLiterals">
+        function <span class="apidocSignatureSpan">esformatter-jsx.</span>_restoreTemplateLiterals
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _restoreTemplateLiterals(source) {
+  var me = this;
+
+  var templateLiterals = me._templateLiterals.pop();
+  templateLiterals = templateLiterals || [];
+
+  templateLiterals.forEach(function (entry) {
+    var code = entry.code;
+    var replacedWith = entry.replacedWith;
+
+    source = source.split(replacedWith).join(code);
+  });
+
+  return source;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx.setOptions" id="apidoc.element.esformatter-jsx.setOptions">
+        function <span class="apidocSignatureSpan">esformatter-jsx.</span>setOptions
+        <span class="apidocSignatureSpan">(opts, esformatter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setOptions(opts, esformatter) {
+  var me = this;
+  opts = opts || {};
+  me.opts = opts;
+  me._esformatter = esformatter;
+
+  var jsxOptions = opts.jsx || {};
+
+  me.jsxOptions = extend(true, {
+    formatJSX: true,
+    attrsOnSameLineAsTag: true,
+    maxAttrsOnTag: null,
+    firstAttributeOnSameLine: false,
+    alignWithFirstAttribute: true,
+    JSXExpressionsSingleLine: true,
+    formatJSXExpressions: true,
+    JSXAttributeQuotes: &#x27;&#x27; }, jsxOptions);
+
+  if (me.jsxOptions.maxAttrsOnTag &#x3c; 1) {
+    me.jsxOptions.maxAttrsOnTag = 1;
+  }
+
+  var htmlOptions = jsxOptions.htmlOptions || {};
+  me.htmlOptions = extend(true, {
+    brace_style: &#x27;collapse&#x27;, //eslint-disable-line
+    indent_char: &#x27; &#x27;, //eslint-disable-line
+    // indentScripts: &#x22;keep&#x22;,
+    indent_size: 2, //eslint-disable-line
+    max_preserve_newlines: 2, //eslint-disable-line
+    preserve_newlines: true, //eslint-disable-line
+    voidElements: [],
+    // indent_handlebars: true
+    unformatted: unformatted,
+    wrap_line_length: 160 //eslint-disable-line
+  }, htmlOptions);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx.stringAfter" id="apidoc.element.esformatter-jsx.stringAfter">
+        function <span class="apidocSignatureSpan">esformatter-jsx.</span>stringAfter
+        <span class="apidocSignatureSpan">(code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function stringAfter(code) {
+  var me = this;
+
+  if (!me.jsxOptions.formatJSX) {
+    return code;
+  }
+
+  var jsxOptions = me.jsxOptions;
+
+  code = libFormat.restoreJSXExpressionContainers(code, me._jsxExpressionContainers, jsxOptions.spaceInJSXExpressionContainers,
+jsxOptions.removeSpaceBeforeClosingJSX);
+
+  var htmlOptions = me.htmlOptions;
+
+  var formatter = libFormat.create(htmlOptions, jsxOptions, me.opts, me._esformatter);
+
+  var ast = falafel(code, function (node) {
+    if (node.type !== &#x27;JSXElement&#x27;) {
+      return;
+    }
+    var conditionalParent = findParent(node, &#x27;ConditionalExpression&#x27;);
+    if (conditionalParent) {
+      var formatted = formatter.format(node);
+      node.update(formatted);
+    }
+  });
+
+  code = ast.toString();
+
+  // replace the spread operators
+  code = code.replace(/____esfmt_spread_sign___\s*:\s*/g, &#x27;...&#x27;);
+
+  ast = falafel(code, function (node) {
+    // support for ES7 Decorators
+    if (node.type === &#x27;CallExpression&#x27; &#x26;&#x26; node.callee.source().indexOf(&#x27;____decorator__at_sign___&#x27;) &#x3e; -1) {
+      node.callee.update(node.callee.source().replace(&#x27;____decorator__at_sign___&#x27;, &#x27;@&#x27;));
+    }
+    if (node.type === &#x27;Identifier&#x27; &#x26;&#x26; node.source().indexOf(&#x27;____decorator__at_sign___&#x27;) &#x3e; -1) {
+      node.update(node.source().replace(&#x27;____decorator__at_sign___&#x27;, &#x27;@&#x27;));
+    }
+    if (node.type !== &#x27;JSXElement&#x27;) {
+      return;
+    }
+
+    var formatted = void 0;
+    if (!findParent(node, &#x27;JSXElement&#x27;)) {
+      formatted = formatter.format(node);
+      node.update(formatted);
+    }
+  });
+
+  code = ast.toString();
+
+  // this is to make sure all decorators comments were removed from the source
+  code = code.replace(/;\s*\/\*__decorator__semi__open\*\/\n\s*\/\*__decorator__semi__end\*\//g, &#x27;&#x27;);
+
+  var _ignore = me._ignore.pop();
+
+  code = _ignore.stringAfter(code);
+  code = me._restoreTemplateLiterals(code);
+
+  return code;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx.stringBefore" id="apidoc.element.esformatter-jsx.stringBefore">
+        function <span class="apidocSignatureSpan">esformatter-jsx.</span>stringBefore
+        <span class="apidocSignatureSpan">(code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function stringBefore(code) {
+  var me = this;
+  if (!me.jsxOptions.formatJSX) {
+    return code;
+  }
+
+  me._ignore = me._ignore || [];
+
+  var _ignore = Object.create(ignore);
+  me._ignore.push(_ignore);
+
+  code = _ignore.stringBefore(code);
+
+  me._templateLiterals = me._templateLiterals || [];
+
+  var templateLiterals = [];
+
+  code = falafel(code, function (node) {
+    if (node.type === &#x27;ClassProperty&#x27;) {
+      if (node.value) {
+        var oldSource = node.source();
+
+        var formattedProp = &#x27;&#x27; + (node.static ? &#x27;static &#x27; : &#x27;&#x27;) + node.key.source() + &#x27; = &#x27; + node.value.source() + (oldSource.match
+(/;$/) ? &#x27;;&#x27; : &#x27;&#x27;);
+
+        node.update(formattedProp);
+      }
+    }
+
+    if (node.type === &#x27;TemplateLiteral&#x27; &#x26;&#x26; !findParent(node, &#x27;JSXAttribute&#x27;) &#x26;&#x26; !findParent(node, &#x27;TemplateLiteral&#x27;)) {
+
+      var idx = templateLiterals.length;
+      var replaceString = &#x27;__TEMPORARY_VARIABLE__PLACEHOLDER___NODE__&#x27; + idx + &#x27;_&#x27;;
+
+      templateLiterals.push({
+        code: node.source(),
+        replacedWith: replaceString
+      });
+
+      node.update(replaceString);
+    }
+
+    if (node.type === &#x27;ArrowFunctionExpression&#x27; || node.type === &#x27;FunctionDeclaration&#x27; || node.type === &#x27;ClassMethod&#x27; || node.type
+ === &#x27;FunctionExpression&#x27; || node.type === &#x27;ObjectMethod&#x27;) {
+
+      node.update(node.source().replace(/^async\s+function/, &#x27;async function&#x27;));
+      node.update(node.source().replace(/^async\s+\(\)/, &#x27;async ()&#x27;));
+    }
+
+    if (node.type === &#x27;Decorator&#x27;) {
+      if (node.parent.type !== &#x27;ClassMethod&#x27; &#x26;&#x26; node.parent.type !== &#x27;ClassProperty&#x27;) {
+        node.update(node.source().replace(/^\s*@/, &#x27;____decorator__at_sign___&#x27;) + &#x27;;/*__decorator__semi__open*/\n/*__decorator__semi__end
+*/&#x27;);
+      }
+    }
+
+    if (node.type === &#x27;SpreadProperty&#x27;) {
+      var _source = node.source().replace(/^\s*\.\.\./, &#x27;____esfmt_spread_sign___:&#x27;);
+      node.update(_source);
+    }
+  }).toString();
+
+  var response = libFormat.replaceJSXExpressionContainers(code);
+  me._jsxExpressionContainers = response.containers;
+  me._templateLiterals.push(templateLiterals);
+  return response.source;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.esformatter-jsx.format_jsx" id="apidoc.module.esformatter-jsx.format_jsx">module esformatter-jsx.format_jsx</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx.format_jsx.create" id="apidoc.element.esformatter-jsx.format_jsx.create">
+        function <span class="apidocSignatureSpan">esformatter-jsx.format_jsx.</span>create
+        <span class="apidocSignatureSpan">(htmlOptions, jsxOptions, options, esformatter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(htmlOptions, jsxOptions, options, esformatter) {
+
+  var ins = {
+    htmlOptions: htmlOptions,
+    jsxOptions: jsxOptions,
+    _keepUnformatted: function _keepUnformatted(tag) {
+      var me = this;
+      var unformatted = me.htmlOptions.unformatted || [];
+
+      return unformatted.indexOf(tag) &#x3e; -1;
+    },
+    prepareToProcessTags: function prepareToProcessTags(source) {
+      var me = this;
+      var code = falafel(source, function (node) {
+        if (node.type === &#x27;JSXElement&#x27; &#x26;&#x26; !node.selfClosing) {
+          if (node.children &#x26;&#x26; node.children.length &#x3e; 0) {
+            if (!me._keepUnformatted(node.openingElement.name.name)) {
+              node.openingElement.update(node.openingElement.source() + &#x27;\n&#x27;);
+              node.closingElement.update(&#x27;\n&#x27; + node.closingElement.source());
+            } else {
+
+              var childrenSource = node.children.map(function (n, idx) {
+                var src = n.source().replace(/\n/g, &#x27; &#x27;).replace(/\s+/g, &#x27; &#x27;);
+
+                var prev = node.children[idx - 1] || {};
+                var next = node.children[idx + 1] || {};
+
+                if (src.trim() === &#x27;&#x27; &#x26;&#x26; prev.type === &#x27;JSXExpressionContainer&#x27; &#x26;&#x26; next.type === &#x27;JSXExpressionContainer&#x27;) {
+                  src = &#x27;&#x27;;
+                }
+                return src;
+              }).join(&#x27;&#x27;).trim();
+
+              var openTag = node.openingElement.source().replace(/\n/g, &#x27; &#x27;).replace(/\s+/g, &#x27; &#x27;).trim();
+              var closeTag = node.closingElement.source().replace(/\n/g, &#x27; &#x27;).replace(/\s+/g, &#x27; &#x27;).trim();
+              var nSource = openTag + childrenSource + closeTag;
+
+              node.update(nSource);
+            }
+          }
+        }
+      });
+      return removeEmptyLines(code.toString());
+    },
+    operateOnOpenTags: function operateOnOpenTags(source, _htmlOptions) {
+      var me = this;
+
+      // make sure tags are in a single line
+      var ast = falafel(source, function (node) {
+        if (node.type === &#x27;JSXOpeningElement&#x27;) {
+          if (node.attributes &#x26;&#x26; node.attributes.length &#x3e; (me.jsxOptions.maxAttrsOnTag || 0)) {
+            if (node.selfClosing) {
+              node.update(node.source().split(/\n/).map(function (line) {
+                return line.trim();
+              }).join(&#x27; &#x27;));
+            }
+          }
+        }
+      });
+
+      ast = falafel(ast.toString(), function (node) {
+        if (node.type === &#x27;JSXOpeningElement&#x27;) {
+          if (node.attributes &#x26;&#x26; node.attributes.length &#x3e; (me.jsxOptions.maxAttrsOnTag || 0)) {
+            (function () {
+              var first = node.attributes[0];
+              var firstAttributeInSameLine = me.jsxOptions.firstAttributeOnSameLine;
+
+              var indentSize = _htmlOptions.indent_size || 4;
+              var indentChar = _htmlOptions.indent_char || &#x27; &#x27;;
+
+              var alignWith = me.jsxOptions.alignWithFirstAttribute ? first.loc.start.column : node.loc.start.column + indentSize
+;
+              var tabPrefix = new Array(alignWith + 1).join(indentChar);
+
+              var index = 0;
+              // console.log( node.attributes );
+              node.attributes.forEach(function (cNode) {
+                index++; // eslint-disable-line
+                if (firstAttributeInSameLine &#x26;&#x26; index === 1) {
+                  // first = false;
+                  return;
+                }
+
+                cNode.update(&#x27;\n&#x27; + tabPrefix + cNode.source());
+              });
+
+              if (me.jsxOptions.closingTagOnNewLine) {
+                // If you find a closing tag (including a self-closing tag like /&#x3e;), add a new line, matching the current alignWith
+                var closingTagTabPrefix = new Array(node.loc.start.column + 1).join(indentChar);
+                node.update(node.source().replace(/(\/?&#x3e;)$/, &#x27;\n&#x27; + closingTagTabPrefix + &#x27;$1&#x27;));
+              }
+            })();
+          }
+        }
+      });
+
+      return ast.toString();
+    },
+    _recursiveFormat: function _recursiveFormat(node) {
+      var originalSource = node.source();
+
+      var source = originalSource;
+
+      var code = void 0;
+
+      try {
+        if (node.type === ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx.format_jsx.replaceJSXExpressionContainers" id="apidoc.element.esformatter-jsx.format_jsx.replaceJSXExpressionContainers">
+        function <span class="apidocSignatureSpan">esformatter-jsx.format_jsx.</span>replaceJSXExpressionContainers
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function replaceJSXExpressionContainer(source) {
+  var response = [];
+  var index = void 0;
+
+  var ast = falafel(source, function (node) {
+    if (node.type === &#x27;JSXExpressionContainer&#x27;) {
+      var attribute = false;
+      var replacement = void 0;
+      index = response.length;
+
+      if (findParent(node, &#x27;JSXAttribute&#x27;)) {
+        attribute = true;
+        replacement = &#x27;&#x22;__JSXattribute_0_&#x27; + index + &#x27;&#x22;&#x27;;
+      } else {
+        replacement = &#x27;&#x3c;__JSXExpression_0_&#x27; + index + &#x27; /&#x3e;&#x27;;
+      }
+
+      var loc = node.loc || node.node.loc;
+
+      response.push({
+        jsxAttribute: attribute,
+        code: node.source(),
+        column: loc.start.column
+      });
+
+      node.update(replacement);
+    }
+  });
+
+  return { containers: response, source: ast.toString() };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.esformatter-jsx.format_jsx.restoreJSXExpressionContainers" id="apidoc.element.esformatter-jsx.format_jsx.restoreJSXExpressionContainers">
+        function <span class="apidocSignatureSpan">esformatter-jsx.format_jsx.</span>restoreJSXExpressionContainers
+        <span class="apidocSignatureSpan">(source, containers, space, removeSpace)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function restoreContainers(source, containers, space, removeSpace) {
+
+  iterateReverse(containers, function (entry, idx) {
+    var container = entry.code;
+    var column = entry.column;
+    var rx = entry.jsxAttribute ? new RegExp(&#x27;[\&#x27;&#x22;]__JSXattribute_0_&#x27; + idx + &#x27;[\&#x27;&#x22;]&#x27;) : new RegExp(&#x27;&#x3c;__JSXExpression_0_&#x27; + idx + &#x27;\\s*\\/&#x3e;&#x27;);
+
+    if (!entry.jsxAttribute) {
+      container = addSpaces(container, column);
+    }
+
+    if (typeof space !== &#x27;string&#x27;) {
+      space = &#x27; &#x27;; // 1 space by default
+    }
+    // this line was causing bug#13
+    // source = source.replace( rx, container.replace( /^\{\s*/, &#x27;{&#x27; + space ).replace( /\s*\}$/, space + &#x27;}&#x27; ) );
+    source = source.split(rx).join(container.replace(/^\{\s*/, &#x27;{&#x27; + space).replace(/\s*\}$/, space + &#x27;}&#x27;));
+  });
+
+  if (removeSpace === true) {
+    source = source.replace(/\s+\/&#x3e;/g, &#x27;/&#x3e;&#x27;);
+  }
+
+  return source;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
